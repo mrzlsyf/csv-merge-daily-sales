@@ -16,9 +16,6 @@ export const FINAL_HEADERS = [
   "CustomerPhoneNumber",
   "CustomerDisplayName",
   "BillingAddress",
-  "KecamatanCustomer",
-  "KabupatenCustomer",
-  "ProvinsiCustomer",
   "Note",
   "ProductCode",
   "Quantity",
@@ -41,5 +38,8 @@ export const FINAL_HEADERS = [
   "Status",
   "Last CRM",
   "Last Team",
+  "KecamatanCustomer",
+  "KabupatenCustomer",
+  "ProvinsiCustomer",
   "source",
 ];
