@@ -8,7 +8,7 @@ export class EdhisFHTransformer extends BaseTransformer {
         orig[k.trim().toLowerCase()] = row[k];
       });
       const mappings = {
-        Status: orig["status order"] ?? "",
+        Status: "Pending Pickup",
         PLATFORM: "",
         PlatformCrm: "",
         "BM PER TEAM": "",
@@ -22,7 +22,10 @@ export class EdhisFHTransformer extends BaseTransformer {
         source: "edhis_fh",
       };
 
-      return this.mapRow(row, mappings);
+      const result = this.mapRow(row, mappings);
+      result.No = "";
+
+      return result;
     });
   }
 }
