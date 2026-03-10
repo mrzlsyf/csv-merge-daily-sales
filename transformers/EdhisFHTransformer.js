@@ -30,6 +30,7 @@ export class EdhisFHTransformer extends BaseTransformer {
         ADV_PLATFORM: "",
         "Last CRM": "",
         "Last Team": "",
+        Waba: "",
         source: "edhis_fh",
       };
 

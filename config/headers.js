@@ -39,6 +39,7 @@ export const FINAL_HEADERS = [
   "Status",
   "Last CRM",
   "Last Team",
+  "Waba",
   "KecamatanCustomer",
   "KabupatenCustomer",
   "ProvinsiCustomer",
