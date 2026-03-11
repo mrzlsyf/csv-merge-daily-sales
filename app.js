@@ -98,7 +98,7 @@ class App {
       this._updateProgress(20, "Membaca file...");
 
       const [edhisRaw, edxRaw, edmRaw, shipperRaw] = await Promise.all([
-        CSVUtil.read(this.files.edhisFH, ","),
+        CSVUtil.read(this.files.edhisFH, ";"),
         CSVUtil.read(this.files.webotEDX, ";"),
         CSVUtil.read(this.files.webotEDM, ";"),
         CSVUtil.read(this.files.webotShipper, ";"),
