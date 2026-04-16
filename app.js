@@ -112,7 +112,10 @@ class App {
       const edhisData = new EdhisFHTransformer(edhisRaw).transform();
       const edxData = new WebotTransformer(edxRaw, "webot_edx").transform();
       const edmData = new WebotTransformer(edmRaw, "webot_edm").transform();
-      const shipperData = new WebotTransformer(shipperRaw, "webot_shipper").transform();
+      const shipperData = new WebotTransformer(
+        shipperRaw,
+        "webot_shipper",
+      ).transform();
       const pcaData = new WebotTransformer(pcaRaw, "webot_pca").transform();
 
       const mergedData = [
