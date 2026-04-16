@@ -99,7 +99,7 @@ class App {
     try {
       this._updateProgress(20, "Membaca file...");
 
-      const [edhisRaw, edxRaw, edmRaw, shipperRaw] = await Promise.all([
+      const [edhisRaw, edxRaw, edmRaw, shipperRaw, pcaRaw] = await Promise.all([
         CSVUtil.read(this.files.edhisFH, ";"),
         CSVUtil.read(this.files.webotEDX, ";"),
         CSVUtil.read(this.files.webotEDM, ";"),
@@ -112,14 +112,8 @@ class App {
       const edhisData = new EdhisFHTransformer(edhisRaw).transform();
       const edxData = new WebotTransformer(edxRaw, "webot_edx").transform();
       const edmData = new WebotTransformer(edmRaw, "webot_edm").transform();
-      const shipperData = new WebotTransformer(
-        shipperRaw,
-        "webot_shipper",
-      ).transform();
-      const pcaData = new WebotTransformer(
-        this.files.webotPCA,
-        "webot_pca",
-      ).transform();
+      const shipperData = new WebotTransformer(shipperRaw, "webot_shipper").transform();
+      const pcaData = new WebotTransformer(pcaRaw, "webot_pca").transform();
 
       const mergedData = [
         ...edhisData,
