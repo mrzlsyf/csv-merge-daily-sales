@@ -17,6 +17,7 @@ class App {
       webotEDX: null,
       webotEDM: null,
       webotShipper: null,
+      webotPCA: null,
     };
 
     this.init();
@@ -34,6 +35,7 @@ class App {
       { id: "webotEDX", zone: "zone-webotEDX" },
       { id: "webotEDM", zone: "zone-webotEDM" },
       { id: "webotShipper", zone: "zone-webotShipper" },
+      { id: "webotPCA", zone: "zone-webotPCA" },
     ];
 
     fileConfigs.forEach((cfg) => {
@@ -102,6 +104,7 @@ class App {
         CSVUtil.read(this.files.webotEDX, ";"),
         CSVUtil.read(this.files.webotEDM, ";"),
         CSVUtil.read(this.files.webotShipper, ";"),
+        CSVUtil.read(this.files.webotPCA, ";"),
       ]);
 
       this._updateProgress(60, "Processing data...");
@@ -113,8 +116,18 @@ class App {
         shipperRaw,
         "webot_shipper",
       ).transform();
+      const pcaData = new WebotTransformer(
+        this.files.webotPCA,
+        "webot_pca",
+      ).transform();
 
-      const mergedData = [...edhisData, ...edxData, ...edmData, ...shipperData];
+      const mergedData = [
+        ...edhisData,
+        ...edxData,
+        ...edmData,
+        ...shipperData,
+        ...pcaData,
+      ];
 
       this._updateProgress(90, "Menyimpan...");
 
