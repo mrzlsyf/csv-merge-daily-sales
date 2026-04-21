@@ -31,6 +31,7 @@ export class EdhisFHTransformer extends BaseTransformer {
         "Last CRM": "",
         "Last Team": "",
         Waba: "",
+        Promo: "",
         source: "edhis_fh",
       };
 
